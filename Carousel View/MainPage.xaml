@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carousel_View.MainPage">
+    <StackLayout>
+
+        <!--carousel view will display text only-->
+        <StackLayout BackgroundColor="LightBlue">
+            <CarouselView BackgroundColor="Green"
+                      Margin="10"
+                      HeightRequest="200"
+                      ItemsSource="{Binding Fruits}" >
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"
+                               TextColor="White"
+                               FontSize="50"
+                               TextTransform="Uppercase"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               />
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+        <!--carousel view will display text and photo-->
+        <StackLayout BackgroundColor="Yellow">
+            <CarouselView BackgroundColor="LightGreen"
+                          Margin="5"
+                          HeightRequest="220"
+                          ItemsSource="{Binding Fruits}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="Gray"
+                                     Orientation="Horizontal"
+                                     >
+                            <Image Source="{Binding Image}"
+                                   HeightRequest="200"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Start"
+                                   />
+                            <Label Text="{Binding Name}"
+                                   TextColor="Black"
+                                   FontSize="30"
+                                   TextTransform="Uppercase"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   />
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+
+
+        <!--carousel view will display text , photo and a Button -->
+        <StackLayout BackgroundColor="LightGreen">
+            <CarouselView ItemsSource="{Binding Vegetables}"
+                          BackgroundColor="Transparent"
+                          PeekAreaInsets="40">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="10"
+                                       Orientation="Horizontal"
+                                       SnapPointsAlignment="Start"
+                                       SnapPointsType="Mandatory">
+                        
+                    </LinearItemsLayout>
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame CornerRadius="45"
+                                   BackgroundColor="White"
+                                   VerticalOptions="CenterAndExpand">
+                                <StackLayout>
+                                    <Image Source="{Binding Image}"/>
+                                    <Label Text="{Binding Name}"
+                                          FontSize="Large"
+                                           TextTransform="Uppercase"
+                                           HorizontalOptions="Center"
+                                           />
+                                    <Button Text="Order NOW"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
